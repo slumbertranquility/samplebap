@@ -8,35 +8,43 @@
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap');
 
         :root {
-            --primary: #6B9080;  /* Sage Green */
-            --accent: #EAF4F4;   /* Mint White */
-            --text: #4A4A4A;     /* Dark Gray */
-            --gold: #D4AF37;     /* Gold */
+            /* I adjusted the primary color to a 'Dusty Rose' to match your floral background perfectly */
+            --primary: #B06D73; 
+            --text: #4A4A4A;
+            --gold: #D4AF37;
         }
 
         body {
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             color: var(--text);
+            
+            /* YOUR UPLOADED BACKGROUND IMAGE LINKED HERE */
+            background-image: url('https://raw.githubusercontent.com/slumbertranquility/samplebap/main/3fc9463b7507f5bc8db00f0955ee66d4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.95);
+            /* Slightly transparent white to let the flowers show behind */
+            background: rgba(255, 255, 255, 0.92); 
             padding: 3rem 2rem;
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             text-align: center;
             max-width: 500px;
-            width: 90%;
+            width: 85%;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,1);
+            border: 1px solid rgba(255,255,255,0.8);
+            backdrop-filter: blur(5px); /* Makes the text easy to read */
         }
 
         .card::before {
@@ -51,7 +59,7 @@
 
         h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 4rem; /* Slightly larger for the name */
+            font-size: 4rem; 
             color: var(--primary);
             margin: 0.5rem 0;
             line-height: 1.2;
@@ -62,8 +70,9 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             font-size: 0.75rem;
-            color: #999;
+            color: #888;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         /* Countdown Styles */
@@ -78,7 +87,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 60px;
+            min-width: 55px;
         }
 
         .time-val {
@@ -121,14 +130,14 @@
             letter-spacing: 1px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(107, 144, 128, 0.3);
+            box-shadow: 0 4px 15px rgba(176, 109, 115, 0.3);
             border: none;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            background: #5a7a6c;
-            box-shadow: 0 6px 20px rgba(107, 144, 128, 0.5);
+            background: #965359;
+            box-shadow: 0 6px 20px rgba(176, 109, 115, 0.5);
         }
 
         .footer {
@@ -223,23 +232,11 @@
         .success { color: var(--primary); }
         .error { color: #d9534f; }
 
-        /* Decorative Circles */
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            z-index: -1;
-        }
-        .c1 { width: 300px; height: 300px; background: radial-gradient(circle, var(--accent) 0%, transparent 70%); top: -100px; right: -100px; }
-        .c2 { width: 200px; height: 200px; background: radial-gradient(circle, #FFF8E1 0%, transparent 70%); bottom: -50px; left: -50px; }
-
     </style>
 </head>
 <body>
 
     <div class="card">
-        <div class="circle c1"></div>
-        <div class="circle c2"></div>
-
         <p class="intro">Joyfully inviting you to the baptism of</p>
         
         <h1>Tumulak</h1>
