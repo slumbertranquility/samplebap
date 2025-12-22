@@ -3,50 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baptism of Liam Alexander</title>
+    <title>Baptism of Tumulak</title>
     <style>
-        /* (Styles remain the same as previous version) */
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap');
 
-        :root { --primary: #6B9080; --accent: #EAF4F4; --text: #4A4A4A; --gold: #D4AF37; }
+        :root {
+            --primary: #6B9080;  /* Sage Green */
+            --accent: #EAF4F4;   /* Mint White */
+            --text: #4A4A4A;     /* Dark Gray */
+            --gold: #D4AF37;     /* Gold */
+        }
 
-        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; color: var(--text); }
-        .card { background: rgba(255, 255, 255, 0.95); padding: 3rem 2rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); text-align: center; max-width: 500px; width: 90%; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,1); }
-        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(90deg, var(--primary), var(--gold)); }
-        h1 { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--primary); margin: 0.5rem 0; line-height: 1.2; text-shadow: 2px 2px 4px rgba(0,0,0,0.05); }
-        .intro { text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; color: #999; margin-bottom: 1rem; }
-        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,1);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem; /* Slightly larger for the name */
+            color: var(--primary);
+            margin: 0.5rem 0;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .intro {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: #999;
+            margin-bottom: 1rem;
+        }
+
         /* Countdown Styles */
-        .countdown { display: flex; justify-content: center; gap: 15px; margin: 2rem 0; }
-        .time-box { display: flex; flex-direction: column; align-items: center; min-width: 60px; }
-        .time-val { font-size: 1.5rem; font-weight: 600; color: var(--gold); }
-        .time-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 2rem 0;
+        }
 
-        .details { margin: 2rem 0; font-weight: 300; line-height: 1.8; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 1.5rem 0; }
-        .details strong { display: block; font-weight: 600; color: var(--primary); font-size: 1.1rem; }
-        .btn { display: inline-block; padding: 14px 40px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(107, 144, 128, 0.3); border: none; }
-        .btn:hover { transform: translateY(-2px); background: #5a7a6c; box-shadow: 0 6px 20px rgba(107, 144, 128, 0.5); }
-        .footer { margin-top: 2rem; font-size: 0.7rem; color: #aaa; font-style: italic; }
+        .time-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 60px;
+        }
+
+        .time-val {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .time-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .details {
+            margin: 2rem 0;
+            font-weight: 300;
+            line-height: 1.8;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+
+        .details strong {
+            display: block;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(107, 144, 128, 0.3);
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background: #5a7a6c;
+            box-shadow: 0 6px 20px rgba(107, 144, 128, 0.5);
+        }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: #aaa;
+            font-style: italic;
+        }
 
         /* Modal Styles */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 1000; }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-card { background: white; padding: 2.5rem; border-radius: 15px; width: 90%; max-width: 400px; position: relative; transform: scale(0.7); transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        .modal-overlay.active .modal-card { transform: scale(1); }
-        .close-modal { position: absolute; top: 15px; right: 15px; font-size: 1.5rem; cursor: pointer; color: #999; line-height: 1; }
-        .form-group { margin-bottom: 1.5rem; text-align: left; }
-        .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600; color: var(--text); }
-        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; box-sizing: border-box; }
-        .form-group input:focus { outline: none; border-color: var(--primary); }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            transform: scale(0.7);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            line-height: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
 
         /* Status Messages */
-        #form-status { margin-top: 10px; font-weight: 600; display: none; }
+        #form-status {
+            margin-top: 10px;
+            font-weight: 600;
+            display: none;
+            font-size: 0.9rem;
+        }
         .success { color: var(--primary); }
         .error { color: #d9534f; }
 
-        .circle { position: absolute; border-radius: 50%; z-index: -1; }
+        /* Decorative Circles */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
+        }
         .c1 { width: 300px; height: 300px; background: radial-gradient(circle, var(--accent) 0%, transparent 70%); top: -100px; right: -100px; }
         .c2 { width: 200px; height: 200px; background: radial-gradient(circle, #FFF8E1 0%, transparent 70%); bottom: -50px; left: -50px; }
+
     </style>
 </head>
 <body>
@@ -57,7 +242,7 @@
 
         <p class="intro">Joyfully inviting you to the baptism of</p>
         
-        <h1>Liam Alexander</h1>
+        <h1>Tumulak</h1>
         
         <div class="countdown" id="countdown">
             <div class="time-box"><span class="time-val" id="days">00</span><span class="time-label">Days</span></div>
@@ -67,23 +252,35 @@
         </div>
 
         <div class="details">
-            <p><strong>Sunday, January 24th, 2026</strong> At 10:00 in the Morning</p>
-            <p><strong>St. Therese Chapel</strong> Cebu City</p>
+            <p>
+                <strong>Sunday, January 24th, 2026</strong>
+                At 10:00 in the Morning
+            </p>
+            <p>
+                <strong>St. Therese Chapel</strong>
+                Cebu City
+            </p>
         </div>
 
         <button class="btn" onclick="openModal()">RSVP Now</button>
 
-        <div class="footer">"For this child I prayed." — 1 Samuel 1:27</div>
+        <div class="footer">
+            "For this child I prayed." — 1 Samuel 1:27
+        </div>
     </div>
 
     <div class="modal-overlay" id="rsvpModal">
         <div class="modal-card">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h2 style="color:var(--primary); margin-top:0;">RSVP</h2>
-            <p style="font-size: 0.9rem; margin-bottom: 20px;">Please fill out your details below.</p>
+            <p style="font-size: 0.9rem; margin-bottom: 20px;">We hope you can join us!</p>
             
-            <form id="rsvp-form" action="https://formspree.io/f/PASTE_YOUR_FORMSPREE_LINK_HERE" method="POST">
+            <form id="rsvp-form" action="https://formsubmit.co/Igotkurt@gmail.com" method="POST">
                 
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New Baptism RSVP - Tumulak">
+                <input type="hidden" name="_template" value="table">
+
                 <div class="form-group">
                     <label>Your Name</label>
                     <input type="text" name="Guest Name" required placeholder="Full Name">
@@ -110,14 +307,27 @@
 
     <script>
         // --- Countdown Logic ---
+        // Change this date to your actual event date!
         const targetDate = new Date("Jan 24, 2026 10:00:00").getTime();
-        setInterval(function() {
+
+        const timer = setInterval(function() {
             const now = new Date().getTime();
             const distance = targetDate - now;
-            document.getElementById("days").innerText = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24))).toString().padStart(2, '0');
-            document.getElementById("hours").innerText = Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = Math.max(0, Math.floor((distance % (1000 * 60)) / 1000)).toString().padStart(2, '0');
+
+            const days = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
+            const hours = Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+            const minutes = Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+            const seconds = Math.max(0, Math.floor((distance % (1000 * 60)) / 1000));
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "TODAY IS THE BIG DAY!";
+            }
         }, 1000);
 
         // --- Modal & AJAX Form Logic ---
@@ -126,12 +336,25 @@
         const status = document.getElementById("form-status");
         const submitBtn = document.getElementById("submit-btn");
 
-        function openModal() { modal.classList.add('active'); }
-        function closeModal() { modal.classList.remove('active'); status.style.display = 'none'; form.reset(); }
-        modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+        function openModal() {
+            modal.classList.add('active');
+        }
 
-        // AJAX Submission to Formspree (prevents page reload)
-        form.addEventListener("submit", async function(event) {
+        function closeModal() {
+            modal.classList.remove('active');
+            status.style.display = 'none';
+            form.reset();
+        }
+
+        // Close when clicking outside the card
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Handle Form Submit without leaving page
+        form.addEventListener("submit", function(event) {
             event.preventDefault();
             const data = new FormData(event.target);
             
@@ -139,32 +362,35 @@
             submitBtn.disabled = true;
 
             fetch(event.target.action, {
-                method: form.method,
+                method: "POST",
                 body: data,
-                headers: { 'Accept': 'application/json' }
+                headers: { 
+                    'Accept': 'application/json' 
+                }
             }).then(response => {
                 if (response.ok) {
-                    status.innerHTML = "Thanks! Your RSVP was sent.";
+                    status.innerHTML = "Thanks! Your RSVP has been sent.";
                     status.className = "success";
                     status.style.display = "block";
                     submitBtn.innerText = "Sent!";
-                    submitBtn.style.background = "#D4AF37";
-                    setTimeout(closeModal, 2000);
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            status.innerHTML = "Oops! There was a problem submitting your form";
-                        }
-                        status.className = "error";
-                        status.style.display = "block";
-                        submitBtn.innerText = "Try Again";
+                    submitBtn.style.background = "#D4AF37"; // Gold color
+                    
+                    // Close modal after 2.5 seconds
+                    setTimeout(() => {
+                        closeModal();
+                        submitBtn.innerText = "Confirm"; 
+                        submitBtn.style.background = ""; 
                         submitBtn.disabled = false;
-                    })
+                    }, 2500);
+                } else {
+                    status.innerHTML = "Oops! Something went wrong.";
+                    status.className = "error";
+                    status.style.display = "block";
+                    submitBtn.innerText = "Try Again";
+                    submitBtn.disabled = false;
                 }
             }).catch(error => {
-                status.innerHTML = "Oops! There was a problem submitting your form";
+                status.innerHTML = "Network error. Please check internet.";
                 status.className = "error";
                 status.style.display = "block";
                 submitBtn.innerText = "Try Again";
@@ -174,3 +400,4 @@
     </script>
 </body>
 </html>
+
