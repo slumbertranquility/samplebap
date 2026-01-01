@@ -1,226 +1,247 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Baptism Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- Color Variables & Reset --- */
+        /* --- VIBRANT COLOR PALETTE --- */
         :root {
-            --bg-color: #FDF6F6;       /* Blush Cream */
-            --accent-pink: #E6B2C6;    /* Dusty Pink */
-            --gold: #D4AF37;           /* Muted Gold */
-            --sage: #8FA698;           /* Sage Green */
-            --text-color: #5D4E52;     /* Deep Taupe */
-            --white: #ffffff;
+            --bg-gradient: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%);
+            --card-bg: rgba(255, 255, 255, 0.92); /* Semi-transparent white */
+            --primary-pink: #FF6B8B;
+            --deep-rose: #D6336C;
+            --gold-accent: #DAA520;
+            --text-main: #4A2C35;
+            --text-light: #7a5c65;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            text-align: center;
-            overflow-x: hidden;
+            background-image: var(--bg-gradient);
+            background-attachment: fixed; /* Keeps gradient fixed while scrolling */
+            color: var(--text-main);
+            font-family: 'Quicksand', sans-serif; /* Rounder, friendlier font */
+            min-height: 100vh;
+            padding: 15px;
         }
 
-        /* --- Typography --- */
-        h1, h2, .script-font {
-            font-family: 'Great Vibes', cursive;
-            color: var(--gold);
-            font-weight: 400;
-        }
-
-        h1 { font-size: 3.5rem; margin-bottom: 0.5rem; line-height: 1.2; }
-        h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent-pink); }
-        h3 { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; color: var(--text-color); }
-        p { font-size: 1rem; margin-bottom: 1rem; }
-
-        /* --- Layout --- */
-        .container {
-            max-width: 600px;
+        /* --- MOBILE CONTAINER --- */
+        .mobile-container {
+            max-width: 450px; /* Limits width on desktop, full width on mobile */
             margin: 0 auto;
-            padding: 20px;
-            background: var(--bg-color);
+            padding-bottom: 50px;
         }
 
-        /* --- Hero Section --- */
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--deep-rose);
+            font-size: 3.8rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--primary-pink);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        p { font-size: 1rem; line-height: 1.5; margin-bottom: 10px; }
+
+        /* --- HERO SECTION --- */
         .hero {
-            padding: 40px 0;
-            position: relative;
+            text-align: center;
+            padding: 30px 0;
         }
 
-        /* Placeholder for the Baby's Photo */
+        /* Photo Frame with Gradient Border */
         .photo-frame {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 20px;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 15px;
             border-radius: 50%;
-            background-color: #fff;
-            border: 3px solid var(--accent-pink);
-            /* Replace the URL below with your actual Baby Photo */
-            background-image: url('https://via.placeholder.com/200/FDF6F6/E6B2C6?text=Baby+Photo'); 
+            background: #fff;
+            padding: 5px; /* Creates the white gap */
+            box-shadow: 0 8px 25px rgba(214, 51, 108, 0.4);
+        }
+        
+        .photo-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            /* UPDATE THIS URL WITH BABY PHOTO */
+            background-image: url('https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
             background-size: cover;
             background-position: center;
-            box-shadow: 0 10px 20px rgba(230, 178, 198, 0.3);
+            border: 2px solid var(--primary-pink);
         }
 
-        .sub-headline { font-style: italic; color: var(--sage); margin-bottom: 20px; }
-
-        /* --- Cards for Details --- */
+        /* --- CARDS (Glassmorphism) --- */
         .card {
-            background: var(--white);
-            padding: 30px;
-            margin: 20px 0;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--accent-pink);
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-bottom: 4px solid var(--primary-pink);
+            backdrop-filter: blur(5px);
         }
 
-        .divider {
-            height: 1px;
-            background: var(--gold);
-            width: 50px;
-            margin: 20px auto;
-            opacity: 0.5;
+        .highlight-text {
+            color: var(--primary-pink);
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
-        /* --- Godparents List --- */
-        .godparents-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-        }
+        /* --- DECORATIONS --- */
+        .flower-icon { font-size: 1.5rem; margin: 5px; animation: float 3s ease-in-out infinite; }
         
-        .godparents-list li {
-            border-bottom: 1px dashed #eee;
-            padding-bottom: 5px;
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
         }
 
-        /* --- Form Styling (New) --- */
+        /* --- LISTS --- */
+        ul { list-style: none; }
+        li { padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--text-light); }
+
+        /* --- FORM --- */
         input, select, textarea {
             width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            background-color: #fffbfc;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-color);
+            padding: 14px;
+            margin-bottom: 12px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            background: #fff;
+            font-size: 16px; /* Prevents zoom on iPhone */
         }
-        
+
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: var(--accent-pink);
-            background-color: #fff;
+            border-color: var(--primary-pink);
+            background-color: #fff0f5;
         }
 
-        /* --- Button --- */
+        /* --- BUTTON --- */
         .btn {
-            display: inline-block;
-            background-color: var(--accent-pink);
-            color: var(--white);
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            margin-top: 20px;
+            background: linear-gradient(45deg, var(--primary-pink), var(--deep-rose));
+            color: white;
             border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
-            width: 100%; /* Full width for mobile */
-            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(214, 51, 108, 0.4);
+            transition: transform 0.2s;
+            margin-top: 10px;
         }
-        .btn:hover { background-color: var(--gold); }
+        .btn:active { transform: scale(0.98); }
 
-        /* --- Floral Decoration --- */
-        .floral-deco {
-            font-size: 2rem;
-            color: var(--accent-pink);
-            margin: 10px 0;
+        /* --- FOOTER --- */
+        .footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: white;
+            opacity: 0.8;
+            margin-top: 20px;
         }
 
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <div class="hero">
-            <div class="floral-deco">🌸 🌿 🌸</div>
-            <p class="sub-headline">A New Life, A New Blessing</p>
-            
-            <div class="photo-frame"></div> <h1>Maria Clara</h1>
-            <p class="script-font" style="font-size: 1.5rem; color: var(--text-color);">Is getting baptized</p>
+<div class="mobile-container">
+
+    <div class="hero">
+        <div class="photo-frame">
+            <div class="photo-inner"></div>
         </div>
-
-        <div class="card">
-            <p>With joyful hearts, we invite you to witness the baptism of our daughter. Please join us as she is welcomed into the Christian world.</p>
-        </div>
-
-        <div class="card">
-            <h3>Save the Date</h3>
-            <p style="font-size: 1.2rem; font-weight: bold;">Sunday, October 25th, 2025</p>
-            <div class="divider"></div>
-            <p><strong>Ceremony:</strong> 10:00 AM</p>
-            <p><strong>Reception:</strong> 12:00 PM</p>
-        </div>
-
-        <div class="card">
-            <h3>The Venue</h3>
-            <p><strong>Church:</strong> <br> Sacred Heart Parish, Cebu City</p>
-            <div class="divider"></div>
-            <p><strong>Reception:</strong> <br> Grand Convention Center, Cebu City</p>
-            <br>
-            <a href="#" style="color: var(--accent-pink); font-size: 0.9rem;">View Map</a>
-        </div>
-
-        <div class="card">
-            <h3>Godparents</h3>
-            <ul class="godparents-list">
-                <li>Mr. Juan Dela Cruz</li>
-                <li>Ms. Maria Santos</li>
-                <li>Mr. Jose Rizal</li>
-                <li>Ms. Leonor Rivera</li>
-            </ul>
-        </div>
-
-        <div class="card" style="border-top: 4px solid var(--gold);">
-            <h2>RSVP</h2>
-            <p>Please confirm your attendance by October 10th.</p>
-            
-            <form action="https://formsubmit.co/igotkurt@gmail.com" method="POST">
-                
-                <input type="hidden" name="_subject" value="New Baptism RSVP!">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                
-                <input type="text" name="Guest Name" placeholder="Your Full Name" required>
-                
-                <select name="Status" required>
-                    <option value="" disabled selected>Will you be attending?</option>
-                    <option value="Going">Joyfully Accepting</option>
-                    <option value="Not Going">Regretfully Declining</option>
-                </select>
-
-                <input type="number" name="Total Guests" placeholder="Number of seats to reserve" min="1" max="10">
-                
-                <textarea name="Message" rows="3" placeholder="Message for the baby (Optional)"></textarea>
-
-                <button type="submit" class="btn">Send RSVP</button>
-            </form>
-            
-            <div class="floral-deco" style="margin-top: 30px;">🌿 🌸 🌿</div>
-        </div>
-
+        <p style="color: white; font-weight: 600; letter-spacing: 1px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">JOIN US FOR THE BAPTISM OF</p>
+        <h1>Maria Clara</h1>
+        <div style="font-size: 2rem;">🌸 🌿 🌸</div>
     </div>
+
+    <div class="card">
+        <p>We are overjoyed to invite you to share in this blessed moment as our little one receives the sacrament of baptism.</p>
+    </div>
+
+    <div class="card">
+        <h3>📅 When</h3>
+        <p class="highlight-text">Sunday, October 25th, 2025</p>
+        <p>Ceremony @ 10:00 AM</p>
+        <p>Reception @ 12:00 PM</p>
+        
+        <br>
+
+        <h3>📍 Where</h3>
+        <p class="highlight-text">Sacred Heart Parish</p>
+        <p style="font-size: 0.9rem; color: var(--text-light);">D. Jakosalem St, Cebu City</p>
+        
+        <hr style="border: 0; border-top: 1px dashed #ddd; margin: 15px 0;">
+
+        <p class="highlight-text">Grand Convention Center</p>
+        <p style="font-size: 0.9rem; color: var(--text-light);">Reception Venue</p>
+    </div>
+
+    <div class="card">
+        <h3>✨ Godparents</h3>
+        <ul>
+            <li>Juan Dela Cruz</li>
+            <li>Maria Santos</li>
+            <li>Jose Rizal</li>
+            <li>Leonor Rivera</li>
+        </ul>
+    </div>
+
+    <div class="card" style="border-bottom: 6px solid var(--gold-accent);">
+        <h2>R.S.V.P</h2>
+        <p>Please respond by <strong>Oct 10th</strong></p>
+        
+        <form action="https://formsubmit.co/igotkurt@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Baptism Response!">
+            <input type="hidden" name="_captcha" value="false">
+
+            <input type="text" name="Name" placeholder="Guest Name(s)" required>
+            
+            <select name="Attendance" required>
+                <option value="" disabled selected>Are you coming?</option>
+                <option value="Yes">Yes, will attend</option>
+                <option value="No">No, cannot attend</option>
+            </select>
+
+            <textarea name="Message" rows="2" placeholder="Message for the family..."></textarea>
+
+            <button type="submit" class="btn">Send Response 💌</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        Designed with Love ❤️
+    </div>
+
+</div>
 
 </body>
 </html>
+
