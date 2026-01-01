@@ -1,400 +1,226 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baptism of Tumulak</title>
+    <title>Baptism Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap');
-
+        /* --- Color Variables & Reset --- */
         :root {
-            /* I adjusted the primary color to a 'Dusty Rose' to match your floral background perfectly */
-            --primary: #B06D73; 
-            --text: #4A4A4A;
-            --gold: #D4AF37;
+            --bg-color: #FDF6F6;       /* Blush Cream */
+            --accent-pink: #E6B2C6;    /* Dusty Pink */
+            --gold: #D4AF37;           /* Muted Gold */
+            --sage: #8FA698;           /* Sage Green */
+            --text-color: #5D4E52;     /* Deep Taupe */
+            --white: #ffffff;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            margin: 0;
-            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: 'Montserrat', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text);
-            
-            /* YOUR UPLOADED BACKGROUND IMAGE LINKED HERE */
-            background-image: url('https://raw.githubusercontent.com/slumbertranquility/samplebap/main/3fc9463b7507f5bc8db00f0955ee66d4.jpg');
+            line-height: 1.6;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* --- Typography --- */
+        h1, h2, .script-font {
+            font-family: 'Great Vibes', cursive;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        h1 { font-size: 3.5rem; margin-bottom: 0.5rem; line-height: 1.2; }
+        h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent-pink); }
+        h3 { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; color: var(--text-color); }
+        p { font-size: 1rem; margin-bottom: 1rem; }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: var(--bg-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 40px 0;
+            position: relative;
+        }
+
+        /* Placeholder for the Baby's Photo */
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 3px solid var(--accent-pink);
+            /* Replace the URL below with your actual Baby Photo */
+            background-image: url('https://via.placeholder.com/200/FDF6F6/E6B2C6?text=Baby+Photo'); 
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
+            box-shadow: 0 10px 20px rgba(230, 178, 198, 0.3);
         }
 
+        .sub-headline { font-style: italic; color: var(--sage); margin-bottom: 20px; }
+
+        /* --- Cards for Details --- */
         .card {
-            /* Slightly transparent white to let the flowers show behind */
-            background: rgba(255, 255, 255, 0.92); 
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            text-align: center;
-            max-width: 500px;
-            width: 85%;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.8);
-            backdrop-filter: blur(5px); /* Makes the text easy to read */
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, var(--primary), var(--gold));
-        }
-
-        h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 4rem; 
-            color: var(--primary);
-            margin: 0.5rem 0;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .intro {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.75rem;
-            color: #888;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        /* Countdown Styles */
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 2rem 0;
-        }
-
-        .time-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 55px;
-        }
-
-        .time-val {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--gold);
-        }
-
-        .time-label {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
-        }
-
-        .details {
-            margin: 2rem 0;
-            font-weight: 300;
-            line-height: 1.8;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            padding: 1.5rem 0;
-        }
-
-        .details strong {
-            display: block;
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 40px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(176, 109, 115, 0.3);
-            border: none;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            background: #965359;
-            box-shadow: 0 6px 20px rgba(176, 109, 115, 0.5);
-        }
-
-        .footer {
-            margin-top: 2rem;
-            font-size: 0.7rem;
-            color: #aaa;
-            font-style: italic;
-        }
-
-        /* Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-card {
-            background: white;
-            padding: 2.5rem;
+            background: var(--white);
+            padding: 30px;
+            margin: 20px 0;
             border-radius: 15px;
-            width: 90%;
-            max-width: 400px;
-            position: relative;
-            transform: scale(0.7);
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent-pink);
         }
 
-        .modal-overlay.active .modal-card {
-            transform: scale(1);
+        .divider {
+            height: 1px;
+            background: var(--gold);
+            width: 50px;
+            margin: 20px auto;
+            opacity: 0.5;
         }
 
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #999;
-            line-height: 1;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: inherit;
-            box-sizing: border-box;
+        /* --- Godparents List --- */
+        .godparents-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
         }
         
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--primary);
+        .godparents-list li {
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 5px;
         }
 
-        /* Status Messages */
-        #form-status {
-            margin-top: 10px;
-            font-weight: 600;
-            display: none;
-            font-size: 0.9rem;
+        /* --- Form Styling (New) --- */
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fffbfc;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
         }
-        .success { color: var(--primary); }
-        .error { color: #d9534f; }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-pink);
+            background-color: #fff;
+        }
+
+        /* --- Button --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-pink);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%; /* Full width for mobile */
+            font-size: 1rem;
+        }
+        .btn:hover { background-color: var(--gold); }
+
+        /* --- Floral Decoration --- */
+        .floral-deco {
+            font-size: 2rem;
+            color: var(--accent-pink);
+            margin: 10px 0;
+        }
 
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <p class="intro">Joyfully inviting you to the baptism of</p>
+    <div class="container">
         
-        <h1>Tumulak</h1>
-        
-        <div class="countdown" id="countdown">
-            <div class="time-box"><span class="time-val" id="days">00</span><span class="time-label">Days</span></div>
-            <div class="time-box"><span class="time-val" id="hours">00</span><span class="time-label">Hours</span></div>
-            <div class="time-box"><span class="time-val" id="minutes">00</span><span class="time-label">Mins</span></div>
-            <div class="time-box"><span class="time-val" id="seconds">00</span><span class="time-label">Secs</span></div>
-        </div>
-
-        <div class="details">
-            <p>
-                <strong>Sunday, January 24th, 2026</strong>
-                At 10:00 in the Morning
-            </p>
-            <p>
-                <strong>St. Therese Chapel</strong>
-                Cebu City
-            </p>
-        </div>
-
-        <button class="btn" onclick="openModal()">RSVP Now</button>
-
-        <div class="footer">
-            "For this child I prayed." — 1 Samuel 1:27
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="rsvpModal">
-        <div class="modal-card">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 style="color:var(--primary); margin-top:0;">RSVP</h2>
-            <p style="font-size: 0.9rem; margin-bottom: 20px;">We hope you can join us!</p>
+        <div class="hero">
+            <div class="floral-deco">🌸 🌿 🌸</div>
+            <p class="sub-headline">A New Life, A New Blessing</p>
             
-            <form id="rsvp-form" action="https://formsubmit.co/Igotkurt@gmail.com" method="POST">
+            <div class="photo-frame"></div> <h1>Maria Clara</h1>
+            <p class="script-font" style="font-size: 1.5rem; color: var(--text-color);">Is getting baptized</p>
+        </div>
+
+        <div class="card">
+            <p>With joyful hearts, we invite you to witness the baptism of our daughter. Please join us as she is welcomed into the Christian world.</p>
+        </div>
+
+        <div class="card">
+            <h3>Save the Date</h3>
+            <p style="font-size: 1.2rem; font-weight: bold;">Sunday, October 25th, 2025</p>
+            <div class="divider"></div>
+            <p><strong>Ceremony:</strong> 10:00 AM</p>
+            <p><strong>Reception:</strong> 12:00 PM</p>
+        </div>
+
+        <div class="card">
+            <h3>The Venue</h3>
+            <p><strong>Church:</strong> <br> Sacred Heart Parish, Cebu City</p>
+            <div class="divider"></div>
+            <p><strong>Reception:</strong> <br> Grand Convention Center, Cebu City</p>
+            <br>
+            <a href="#" style="color: var(--accent-pink); font-size: 0.9rem;">View Map</a>
+        </div>
+
+        <div class="card">
+            <h3>Godparents</h3>
+            <ul class="godparents-list">
+                <li>Mr. Juan Dela Cruz</li>
+                <li>Ms. Maria Santos</li>
+                <li>Mr. Jose Rizal</li>
+                <li>Ms. Leonor Rivera</li>
+            </ul>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--gold);">
+            <h2>RSVP</h2>
+            <p>Please confirm your attendance by October 10th.</p>
+            
+            <form action="https://formsubmit.co/igotkurt@gmail.com" method="POST">
                 
+                <input type="hidden" name="_subject" value="New Baptism RSVP!">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_subject" value="New Baptism RSVP - Tumulak">
                 <input type="hidden" name="_template" value="table">
-
-                <div class="form-group">
-                    <label>Your Name</label>
-                    <input type="text" name="Guest Name" required placeholder="Full Name">
-                </div>
                 
-                <div class="form-group">
-                    <label>Are you attending?</label>
-                    <select name="Attendance Status">
-                        <option value="Accepting">Joyfully Accepting</option>
-                        <option value="Declining">Regretfully Declining</option>
-                    </select>
-                </div>
+                <input type="text" name="Guest Name" placeholder="Your Full Name" required>
+                
+                <select name="Status" required>
+                    <option value="" disabled selected>Will you be attending?</option>
+                    <option value="Going">Joyfully Accepting</option>
+                    <option value="Not Going">Regretfully Declining</option>
+                </select>
 
-                <div class="form-group">
-                    <label>Number of Guests</label>
-                    <input type="number" name="Guest Count" min="1" value="1">
-                </div>
+                <input type="number" name="Total Guests" placeholder="Number of seats to reserve" min="1" max="10">
+                
+                <textarea name="Message" rows="3" placeholder="Message for the baby (Optional)"></textarea>
 
-                <button type="submit" class="btn" style="width:100%" id="submit-btn">Confirm</button>
-                <p id="form-status"></p>
+                <button type="submit" class="btn">Send RSVP</button>
             </form>
+            
+            <div class="floral-deco" style="margin-top: 30px;">🌿 🌸 🌿</div>
         </div>
+
     </div>
 
-    <script>
-        // --- Countdown Logic ---
-        // Change this date to your actual event date!
-        const targetDate = new Date("Jan 24, 2026 10:00:00").getTime();
-
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            const days = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
-            const hours = Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-            const minutes = Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-            const seconds = Math.max(0, Math.floor((distance % (1000 * 60)) / 1000));
-
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("countdown").innerHTML = "TODAY IS THE BIG DAY!";
-            }
-        }, 1000);
-
-        // --- Modal & AJAX Form Logic ---
-        const modal = document.getElementById('rsvpModal');
-        const form = document.getElementById("rsvp-form");
-        const status = document.getElementById("form-status");
-        const submitBtn = document.getElementById("submit-btn");
-
-        function openModal() {
-            modal.classList.add('active');
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            status.style.display = 'none';
-            form.reset();
-        }
-
-        // Close when clicking outside the card
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Handle Form Submit without leaving page
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
-            const data = new FormData(event.target);
-            
-            submitBtn.innerText = "Sending...";
-            submitBtn.disabled = true;
-
-            fetch(event.target.action, {
-                method: "POST",
-                body: data,
-                headers: { 
-                    'Accept': 'application/json' 
-                }
-            }).then(response => {
-                if (response.ok) {
-                    status.innerHTML = "Thanks! Your RSVP has been sent.";
-                    status.className = "success";
-                    status.style.display = "block";
-                    submitBtn.innerText = "Sent!";
-                    submitBtn.style.background = "#D4AF37"; // Gold color
-                    
-                    // Close modal after 2.5 seconds
-                    setTimeout(() => {
-                        closeModal();
-                        submitBtn.innerText = "Confirm"; 
-                        submitBtn.style.background = ""; 
-                        submitBtn.disabled = false;
-                    }, 2500);
-                } else {
-                    status.innerHTML = "Oops! Something went wrong.";
-                    status.className = "error";
-                    status.style.display = "block";
-                    submitBtn.innerText = "Try Again";
-                    submitBtn.disabled = false;
-                }
-            }).catch(error => {
-                status.innerHTML = "Network error. Please check internet.";
-                status.className = "error";
-                status.style.display = "block";
-                submitBtn.innerText = "Try Again";
-                submitBtn.disabled = false;
-            });
-        });
-    </script>
 </body>
 </html>
-
